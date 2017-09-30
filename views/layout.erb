@@ -6,7 +6,10 @@
 </head>
 <body>
 	<h1>Welcome to VideoTube</h1>
-	<a href="/posts/new">Create a Video Page</a>
+	<form action="/videos/new" method="GET">
+			<input type="hidden" name="_method" value="Create a Video">
+			<input type="submit" value="Create a Video">
+	</form>
 	<%= yield %>
 </body>
 </html>

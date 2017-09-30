@@ -10,9 +10,8 @@ class PostController < Sinatra::Base
 
 
 	get "/videos" do  		###index
-		@posts = Video.all
+		@videos = Video.all
 		@page_header = "All the Clips"
-
 		erb :"videos/index"
 	end	
 
@@ -25,7 +24,7 @@ class PostController < Sinatra::Base
 		new_video.title = params[:title]
 		new_video.body = params[:body]
 		new_video.save
-		redirect '/vidoes'
+		redirect '/videos'
 
 	end
 
@@ -38,7 +37,7 @@ class PostController < Sinatra::Base
 
 	get "/videos/:id/edit" do 		#### edit
 		@video = Video.find(params[:id])
-		erb :"video/edit"
+		erb :"videos/edit"
 	end
 	
 	put "/videos/:id" do 			### update

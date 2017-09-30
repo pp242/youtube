@@ -5,7 +5,12 @@
 <h2> Post Title: <%= @videos.title %></h2>
 <p> Post Body: <%= @videos.body %></p>
 
-<a href="http://localhost:9292/videos">HOME</a>
+
+<form action="/videos" method="GET">
+	<input type="hidden" name="_method" value="Home">
+	<input type="submit" value="Home">
+</form>
+
 
 
 <input type="submit" value="Update">

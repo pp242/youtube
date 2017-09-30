@@ -6,9 +6,15 @@
 
 	<h2> Post Title: <%= video.title %></h2>    
 	<p> Post Body: <%= video.body %></p>
-	<a href="http://localhost:9292/videos/<%=video.id%>">links</a>
-	<a href="/videos/ <%=video.id%>/edit">Edit</a>
 	<br>
+	<form action="/videos/<%=video.id%>" method="GET">
+		<input type="hidden" name="_method" value="<%= video.title %>">
+		<input type="submit" value="<%= video.title %>">
+	</form>
+	<form action="/videos/<%= video.id %>/edit" method="GET">
+		<input type="hidden" name="_method" value="Edit<%= video.title %>">
+		<input type="submit" value="Edit<%= video.title %>">
+	</form>
 
 
 	<form action="/videos/<%= video.id %>" method="POST">
