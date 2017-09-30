@@ -57,7 +57,6 @@ class PostController < Sinatra::Base
 
 		redirect '/videos'
 	end
-
 end	
 
 
