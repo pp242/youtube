@@ -1,0 +1,20 @@
+<h1><%= @page_header %></h1>
+	
+	
+
+<% @videos.each do |video| %>
+
+	<h2> Post Title: <%= video.title %></h2>    
+	<p> Post Body: <%= video.body %></p>
+	<a href="http://localhost:9292/videos/<%=video.id%>">links</a>
+	<a href="/videos/ <%=video.id%>/edit">Edit</a>
+	<br>
+
+
+	<form action="/videos/<%= video.id %>" method="POST">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="delete">
+	</form>
+
+
+<% end %>
