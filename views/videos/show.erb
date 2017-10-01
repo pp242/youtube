@@ -1,20 +1,20 @@
 <h1><%= @page_header %></h1>
 	
 
-
 <h2>Title: <%= @videos.title %></h2>
+<iframe src="<%=@videos.link%>"
+   width="560" height="315" frameborder="0" allowfullscreen></iframe>
+<p> Source: <%=@videos.link%></p>
+<br>
 <p>Body: <%= @videos.body %></p>
-
-
+<br>
+<p>Genre: <%=@videos.genre%> </p>
 <form action="/videos" method="GET">
 	<input type="hidden" name="_method" value="Home">
 	<input type="submit" value="Home">
 </form>
 
-<iframe src="<%=@videos.link%>"
-   width="560" height="315" frameborder="0" allowfullscreen></iframe>
-<p> <%=@videos.link%></p>
-
-
-<input type="submit" value="Update">
-
+<form action="/videos/<%=@videos.id%>/edit" method="GET">
+	<input type="hidden" name="_method" value="Update">
+	<input type="submit" value="Update">
+</form>

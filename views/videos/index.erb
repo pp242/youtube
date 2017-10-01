@@ -4,23 +4,22 @@
 
 <% @videos.each do |video| %>
 
-	<h2> Post Title: <%= video.title %></h2>    
-	<p> Post Body: <%= video.body %></p>
-	<iframe width="300" height="205" src="<%=video.link%>" frameborder="0" allowfullscreen></iframe>
+	<h2> Title: <%= video.title %></h2>    
+	<a href="/videos/<%=video.id%>"><iframe width="300" height="205" src="<%=video.link%>" frameborder="0" allowfullscreen></iframe></a>
 	<br>
 	<form action="/videos/<%=video.id%>" method="GET">
 		<input type="hidden" name="_method" value="<%= video.title %>">
 		<input type="submit" value="<%= video.title %>">
 	</form>
 	<form action="/videos/<%= video.id %>/edit" method="GET">
-		<input type="hidden" name="_method" value="Edit<%= video.title %>">
-		<input type="submit" value="Edit<%= video.title %>">
+		<input type="hidden" name="_method" value="Edit <%= video.title %>">
+		<input type="submit" value="Edit <%= video.title %>">
 	</form>
 
 
 	<form action="/videos/<%= video.id %>" method="POST">
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="delete">
+		<input type="hidden" name="_method" value="Delete">
+		<input type="submit" value="Delete">
 	</form>
 
 

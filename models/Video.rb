@@ -46,7 +46,7 @@ class Video
 		if !self.id
 			sql  = "INSERT INTO video (body,title,link,genre) VALUES ('#{self.body}', '#{self.title}', '#{self.link}', '#{self.genre}')"
 		else
-			sql = "UPDATE video SET title = '#{self.title}',body='#{self.body}', link='#{self.link}', genre='#{self.genre}' WHERE id = #{self.id}"
+			sql = "UPDATE video SET title = '#{self.title}',body = '#{self.body}', link = '#{self.link}', genre = '#{self.genre}' WHERE id = #{self.id}"
 		end
 		conn.exec(sql)
 
