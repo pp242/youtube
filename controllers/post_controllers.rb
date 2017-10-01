@@ -11,7 +11,7 @@ class PostController < Sinatra::Base
 
 	get "/videos" do  		###index
 		@videos = Video.all
-		@page_header = "All the Clips"
+		@page_header = "Different Trailers"
 		erb :"videos/index"
 	end	
 
