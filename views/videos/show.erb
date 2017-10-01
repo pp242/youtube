@@ -2,8 +2,8 @@
 	
 
 
-<h2> Post Title: <%= @videos.title %></h2>
-<p> Post Body: <%= @videos.body %></p>
+<h2>Title: <%= @videos.title %></h2>
+<p>Body: <%= @videos.body %></p>
 
 
 <form action="/videos" method="GET">
@@ -11,9 +11,10 @@
 	<input type="submit" value="Home">
 </form>
 
-<iframe src="<%= @videos.link %>"
-   width="560" height="315" frameborder="0" allowfullscreen href="/videos/<%=videos.id%>"></iframe>
-
+<iframe src="<%=@videos.link%>"
+   width="560" height="315" frameborder="0" allowfullscreen></iframe>
+<p> <%=@videos.link%></p>
 
 
 <input type="submit" value="Update">
+

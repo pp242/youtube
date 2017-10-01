@@ -1,7 +1,7 @@
 class Video
 
 
-	attr_accessor :id, :title, :body, :link
+	attr_accessor :id, :title, :body, :link, :genre
 
 	def self.open_connection
 		PGconn.connect( dbname: "homeworkdatabase")
@@ -10,7 +10,7 @@ class Video
 #index
 	def self.all
 		conn = self.open_connection
-		sql = "SELECT * FROM video;"
+		sql = "SELECT * FROM Video;"
 		results = conn.exec(sql)
 		videos = results.map do |record|
 			self.hydrate(record)
@@ -21,10 +21,11 @@ class Video
 	def self.hydrate video_data
 
 		video = Video.new
-
 		video.id = video_data['id']
 		video.title = video_data['title']
 		video.body = video_data['body']
+		video.link = video_data['link']
+		video.genre = video_data['genre']
 		video
 	end	
 
@@ -43,9 +44,9 @@ class Video
 	def save
 		conn = Video.open_connection
 		if !self.id
-			sql  = "INSERT INTO video (body,title) VALUES ('#{self.body}', '#{self.title}')"
+			sql  = "INSERT INTO video (body,title,link,genre) VALUES ('#{self.body}', '#{self.title}', '#{self.link}', '#{self.genre}')"
 		else
-			sql = "UPDATE video SET title = '#{self.title}',body='#{self.body}' WHERE id = #{self.id}"
+			sql = "UPDATE video SET title = '#{self.title}',body='#{self.body}', link='#{self.link}', genre='#{self.genre}' WHERE id = #{self.id}"
 		end
 		conn.exec(sql)
 

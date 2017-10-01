@@ -6,6 +6,7 @@
 
 	<h2> Post Title: <%= video.title %></h2>    
 	<p> Post Body: <%= video.body %></p>
+	<iframe width="300" height="205" src="<%=video.link%>" frameborder="0" allowfullscreen></iframe>
 	<br>
 	<form action="/videos/<%=video.id%>" method="GET">
 		<input type="hidden" name="_method" value="<%= video.title %>">
